@@ -4,12 +4,21 @@
 # Lecturer: Andrew Beatty
 # Student: Andrew Shanahan
 # Assignment: Programming & Scripting project
+
 # Summary:
-# 1. Fisher's Iris data set 
-# 2.
+
+# 1. Fisher's Iris data set: The Iris flower data set or Fisher's Iris data set, by British statistician and biologist Ronald Fisher in his 1936 paper The use of multiple measurements in taxonomic problems as an example of linear discriminant analysis.
+# This dataset contains a total of 150 records containing 4 feature columns and 1 label columns.
+# Main features of a flower is its sepal and petal dimension so the 4 feature columns are sepal_length, sepal_width, petal_length, petal_width.
+# The label column contains the specie name that contains these 4 data columns.
+# There are total of 3 species used in this dataset all containing 50 records making a total of 150 records in the dataset.
+# Although all these species look alike but the main motive for this dataset is to classify the nature of each specie based on their sepal and petal dimensions.
+# (https://en.wikipedia.org/wiki/Iris_flower_data_set) 
 #
-#
-#
-#
-#
-#
+# 2. Structure of assignment: I took inspiration on how to approach this project in a similar fashion to a case study I had to do for a Data Analytics course I completed on Coursera designed by Google.
+# In that course the Dataset was a study of penguins and it used R and Tableau as the source of data analysis but it gave me a good guideline on how to approach this project.
+
+#3. Result:
+# As part of my analysis of this data set
+
+#4. References: Please see additional Reference section. Most used resources were lecture slides, youtube, google searches, W3Schools and Datacamp

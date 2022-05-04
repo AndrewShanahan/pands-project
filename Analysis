@@ -1,0 +1,63 @@
+#1: I have imported libraries that are nexessary for my analysis, I have added an alias to each
+from asyncio import as_completed
+from tkinter import Variable
+import seaborn as sns
+import pandas as pd
+import numpy as np
+import mathplotlib.pyplot as plt
+
+#2: Next I want to read CSV file as Data Frame using Pandas.
+df=pd.read_CSV('IRIS.csv');
+
+#3: Now I want to review the data by reviewing the first few records to ensure data is correct.
+df.head()
+
+#4: Additionally, I want to review the data and ensure no varriable contains a null value
+info=df.info()
+
+#5: Checking for duplicates
+iris_data[iris_data.duplicated()]
+
+#6: Now I will look to get a summary of each varriable in the Dataset such as; total count, mean, standart deviation, minimum value, maximum value
+summary=df.describe()
+
+#7: Storing the summary of each variable in the Dataset inside a text file called 'iris-summary.txt'. Creating the text file 'iris-summary.txt' with an arguemnt 'w', which means it is going to write the contents in this text file.
+file = open("iris-summary.txt","w")
+
+#7 continued: Adding the string 'Summary of each variable in the Iris Flower Data Set\n\n').
+file.write(str(summary))
+
+#7 continued: Closing the object
+file.close()
+
+#8: I now want to remove the 'Species' column from the dataframe and sort the rest of the Dataset. The reason for this is because it cannot be used for plotting.
+df_without_species=df.drop(["species"], axis=1)
+
+#8: continued: Check the new dataset
+print(df_without_species)
+
+#9: Histogram: Creating a histogram to show visual:
+def save_histograms(df_arg):
+    
+    for column_name in df_arg.columns.values.tolist():
+        counts, bins= np.histogram(df_arg[column_name])
+        plt.title("Histogram of a variable "+column_name) 
+        plt.hist(bins[:-1], bins, weights=counts)
+        plt.savefig(column_name+'.png')
+        plt.clf()
+
+#10: Scatter plot: Creating scatter plog to display additional visual:
+def print_scatterplots(df_arg):
+    
+    for column_name in df_arg.columns.values.tolist():
+        # Since the scatter plot works in a x-y values list, it is considering column values as x values and column index as y values.
+        plt.scatter(np.arange(len(df_arg[column_name])),df_arg[column_name])
+        plt.title("Scatter Plot of a variable "+column_name) 
+        plt.show()
+        plt.clf()
+
+#11: I'm looking to gain some insights from my analysis and want to see how the species differ.
+# I will find the distribution of the species variable to check the balancing of data.
+print(df['species'].value_counts())
+
+#12:
